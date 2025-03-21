@@ -44,12 +44,14 @@
 
 <h3 align="left">Đang Học</h3>
 <ul align="left">
-  <li>Trau dồi kiến thức về Machine Learning và AI.</li>
+  <li>Trau dồi kiến thức về HTML,CSS,Javascrips.</li>
   <li>Khám phá các mẫu React.js nâng cao cùng kỹ thuật quản lý state.</li>
   <li>Nâng cao kỹ năng điện toán đám mây với AWS & Azure.</li>
+  <li>khám phá thêm về kinh nghiệm sử dụng.</li>
+  <li>học c++ để làm game.</li>
 </ul>
   
-<h3 align="left">Bài Blog Mới Nhất</h3>
+<h3 align="left">Bài </h3>
 <ul align="left">
   <li><a href="https://dev.to/dev_kiran/debug-like-a-pro-in-2025-3lg1">😎Debug Like a Pro in 2025🧑‍💻</a></li>
   <li><a href="https://dev.to/dev_kiran/open-source-hidden-gems-v2-4e8j">✨Open-Source Hidden Gems v2🤯</a></li>
@@ -59,6 +61,28 @@
 <br />
 <br />
 <br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--Trophies Section-->   
@@ -128,7 +152,22 @@
     <img src="https://github-readme-activity-graph.vercel.app/graph?username=Kiran1689&bg_color=220a28&&color=ffffff&line=c56a90&point=ffeb95&area=false&hide_border=false" border-radius="15">
 </div>
 
----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--Dynamic Quote card updates everyday at 12 PM--> 
 <h2 align="center">🌟 Daily Inspiration: Suy Ngẫm Của Ngày 🌟</h2>
@@ -144,19 +183,19 @@
 <h2 align="center">🤝 Kết Nối Với Tôi 🤝</h2>
 <div align="center">
   
-  <a href="mailto:kirannaragund197@gmail.com" target="_blank">
-    <img src="./gmail.png" width=50 height=50 alt="kirannaragund197@gmail.com" style="margin-bottom: 5px;" />
+  <a href="mailto:trongthinhm@gmail.com" target="_blank">
+    <img src="./gmail.png" width=50 height=50 alt="trongthinhm@gmail.com" style="margin-bottom: 5px;" />
   </a>
 
   <a href="https://x.com/kiran__a__n" target="_blank">
     <img src="./twitter.png" width=50 height=50 alt="kiran__a__n" style="margin-bottom: 5px;" />
   </a>
 
-  <a href="https://www.instagram.com/kiran_a_n" target="_blank">
+  <a href="https://www.instagram.com/trongthinhm/" target="_blank">
     <img src="./instagram.png" width=50 height=50 alt="kiran_a_n" style="margin-bottom: 5px;" />
   </a>
 
-  <a href="https://www.githubcom/Kiran1689" target="_blank">
+  <a href="https://github.com/maitrongthinh" target="_blank">
     <img src="./github.png" width=50 height=50 alt="Kiran1689" style="margin-bottom: 5px;" />
   </a>
 
@@ -164,11 +203,33 @@
     <img src="./linkedin.png" width=50 height=50 alt="linkedin" style="margin-bottom: 5px;" />
   </a>
 
-  <a href="https://dev.to/dev_kiran" target="_blank">
+  <a href="https://dev.to/thinhdepzai" target="_blank">
     <img src="./dev_to.png" width=50 height=50 alt="dev_kiran" style="margin-bottom: 5px;" />
   </a>
 </div>
 <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--Buy me a coffee-->
 <div align="center">
