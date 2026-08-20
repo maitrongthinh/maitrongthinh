@@ -36,10 +36,6 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
  * mirrored: cursor left, the head looks left; cursor right, it looks right.
  */
 
-/** Framing parallax: camera drift under the tracked head, not a stand-in for it. */
-const PARALLAX = 1.1;
-const ZOOM = 1.055;
-
 export default function ScrubVideo({
   src = heroVideo.sprites,
   className = 'absolute inset-0 h-full w-full object-cover',
@@ -198,26 +194,17 @@ export default function ScrubVideo({
         return;
       }
 
-      // Desktop: cursor X across the viewport is where the head looks. Selecting
-      // off the damped value rather than the raw pointer gives the turn weight —
-      // the head arrives a beat behind the cursor and settles.
+      // The head stays put — no camera drift, no zoom. Only the frame it shows
+      // changes with the cursor, so it turns to face the mouse without the whole
+      // plate sliding around (reported as the image wandering off to the side).
       let px = 0;
-      let py = 0;
       releaseTick = onTick((dt) => {
         if (!onScreen) return;
 
+        // Select off a damped value, not the raw pointer, so the turn has weight —
+        // the head arrives a beat behind the cursor and settles.
         const k = damp(0.06, dt);
         px += (pointer.nx - px) * k;
-        py += (pointer.ny - py) * k;
-        // Drift WITH the cursor, not against it. A negative sign here read as the
-        // frame sliding the opposite way to the mouse — reported, correctly, as
-        // backwards. The head already turns toward the cursor via `select`; the
-        // camera should lean the same way, not fight it.
-        canvas.style.transform = `scale(${ZOOM}) translate3d(${(px * PARALLAX).toFixed(3)}%, ${(
-          py *
-          PARALLAX *
-          0.55
-        ).toFixed(3)}%, 0)`;
 
         const u = (Math.max(-1, Math.min(1, px)) + 1) / 2;
         const { i, flip } = select(u);
@@ -262,7 +249,7 @@ export default function ScrubVideo({
       aria-hidden
       style={{
         transition: 'opacity 400ms linear',
-        willChange: 'transform',
+        willChange: 'opacity',
         opacity: ready ? 1 : 0,
       }}
       className={className}
