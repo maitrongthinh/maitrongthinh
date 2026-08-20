@@ -8,11 +8,11 @@
  * slideshow. `stss` is what says which of those two worlds we are in: present
  * means sparse keyframes, absent means every sample is a keyframe.
  *
- * Usage: node scripts/probe-mp4.mjs public/video/hero.mp4
+ * Usage: node scripts/probe-mp4.mjs assets/hero.mp4
  */
 import { readFileSync } from 'node:fs';
 
-const file = process.argv[2] ?? 'public/video/hero.mp4';
+const file = process.argv[2] ?? 'assets/hero.mp4';
 const buf = readFileSync(file);
 
 /** Walks the box tree, calling `visit(type, start, end, depth)` per box. */

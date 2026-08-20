@@ -150,9 +150,21 @@ export const heroLayers = {
   ease: 0.1,
 };
 
-/** Mouse-scrubbed video band. Same source footage as the hero plate. */
+/**
+ * Head-track band source.
+ *
+ * `hero.mp4` is a single-keyframe 4K clip that cannot be scrubbed frame-to-frame in
+ * real time (see `scripts/probe-mp4.mjs`). `scripts/bake-sprites.mjs` decodes it once,
+ * offline, into a committed sprite sheet; the client blits one tile per cursor
+ * position with no video decode. Re-run the baker whenever the mp4 changes.
+ *
+ * `frames`/`cols` must match the baker's constants; tile dimensions are derived from
+ * the loaded image so the client never hard-codes a resolution.
+ */
 export const heroVideo = {
-  src: asset('/video/hero.mp4'),
+  sprites: asset('/images/hero-sprites.webp'),
+  frames: 30,
+  cols: 6,
 };
 
 export type Project = {
