@@ -36,13 +36,13 @@ jobs:
         env:
           # Lifts the anonymous GitHub API rate limit for the stats fetch.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # This repo is `maitrongthinh/maitrongthinh` — a repo whose name equals
-          # the username, which GitHub treats as the profile repo, *not* as the
-          # user site (that would be `maitrongthinh.github.io`). Pages therefore
-          # serves it as a project page under a sub-path, so every asset and route
-          # has to be prefixed. Leave empty only if this is ever moved to a repo
-          # named `<username>.github.io`.
-          BASE_PATH: '/maitrongthinh'
+          # Served from a custom domain (`thinh.2bd.net`, set as the Pages custom
+          # domain and pinned by `public/CNAME`), which serves at the domain ROOT —
+          # not under a repo sub-path. So there is no prefix: assets and routes live
+          # at `/`. If the custom domain is ever removed and this falls back to the
+          # project page `maitrongthinh.github.io/maitrongthinh`, set this back to
+          # `/maitrongthinh` so the sub-path assets resolve again.
+          BASE_PATH: ''
         run: npm run build
 
       - uses: actions/configure-pages@v5
