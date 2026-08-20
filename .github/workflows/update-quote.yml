@@ -1,9 +1,24 @@
 name: Update Quote
 
+# Rewrites the quote card between the QUOTE_CARD markers in README.md once a day.
+# Kept from this repo's previous life as a profile-only repo; it now shares the
+# repo with the portfolio site, which is why the two changes below matter:
+#
+#  * No `npm install`. `update-quote.js` requires nothing but `fs` and
+#    `quotes.json`, and since the site landed here `npm install` would resolve the
+#    entire Next.js tree on every run — slow, and a lockfile drift away from a
+#    daily red X on a job that only rewrites one <img> tag.
+#  * Node 20, not 14. Node 14 is past end-of-life and `actions/setup-node` no
+#    longer ships it on every runner image.
 on:
-  workflow_dispatch:  #Manually trigger the workflow
+  workflow_dispatch: # Manually trigger the workflow
   schedule:
-    - cron: '30 6 * * *'  # Schedule daily at 12:01 AM Indian Time
+    - cron: '30 6 * * *' # 12:00 IST
+
+# `contents: write` is required for the push below; the default token is
+# read-only on repos created after early 2023.
+permissions:
+  contents: write
 
 jobs:
   update-readme:
@@ -11,24 +26,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm install
+          node-version: 20
 
       - name: Update Quote
         run: node update-quote.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and push changes
         run: |
-          git add README.md
-          git -c user.name='Kiran1689' -c user.email='kirannaragund197@gmail.com' commit -m "Update README with daily quote" -a
+          git config user.name 'maitrongthinh'
+          git config user.email 'maitrongthinh@users.noreply.github.com'
+          # A repeated quote is a real outcome, not a failure: nothing to commit
+          # means the random pick matched yesterday's.
+          if git diff --quiet -- README.md; then
+            echo "Quote unchanged, nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: update README with daily quote" -- README.md
           git push
-

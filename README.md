@@ -33,10 +33,21 @@
 <a href="https://www.facebook.com/trong.thinh.379410">
   <img src="https://img.shields.io/badge/FACEBOOK-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" />
 </a>
+<a href="https://dev.to/thinhdepzai">
+  <img src="https://img.shields.io/badge/DEV.TO-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=f2f0eb" alt="dev.to blog" />
+</a>
 
 <img src="https://komarev.com/ghpvc/?username=maitrongthinh&style=flat-square&color=f2f0eb&label=PROFILE+VIEWS" alt="Profile views" />
 
 </div>
+
+
+<!--STARTS_HERE_QUOTE_CARD-->
+<p align="center">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Nelson%20Mandela&quote=It%20is%20what%20we%20make%20out%20of%20what%20we%20have%2C%20not%20what%20we%20are%20given%2C%20that%20separates%20one%20person%20from%20another.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+</p>
+<!--ENDS_HERE_QUOTE_CARD-->
+
 
 ---
 
@@ -48,6 +59,7 @@ role:      Full-Stack Developer
 country:   Việt Nam 🇻🇳
 building:  NemoBot — nền tảng Discord AI agent
 learning:  hệ thống phân tán, LLM tooling
+community: CLB FCT · Anime No Machi
 discord:   thinh_0107
 motto:     "ship it, then measure it"
 ```
@@ -55,6 +67,8 @@ motto:     "ship it, then measure it"
 - 🤖 Tôi làm **Discord bot và agent platform** — thứ chạy 24/7 mà không cần tôi ngồi nhìn.
 - 🛠️ Backend bằng **Node.js / Python**, thuật toán và tool nhỏ bằng **C++**, giao diện bằng **React**.
 - 🌐 Sản phẩm riêng: **[NemoBot](http://nemobot.bond/)** — tự host, tự vận hành.
+- 👥 Thành viên **[CLB FCT](https://fct-club.com/)**, admin group **Anime No Machi** trên Facebook.
+- ✍️ Viết lách ở **[dev.to/thinhdepzai](https://dev.to/thinhdepzai)**. Portfolio cũ: [thinh.my-style.in](http://thinh.my-style.in/).
 - 📈 Repo công khai đầu tiên: **08/2024**. Từ đó tới nay: **30+ repo**, vẫn đang đẩy tiếp.
 - 🇻🇳 Viết code ở Việt Nam, cho bất cứ ai trên internet dùng được.
 
