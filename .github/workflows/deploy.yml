@@ -46,6 +46,14 @@ jobs:
         run: npm run build
 
       - uses: actions/configure-pages@v5
+        with:
+          # This repo previously served its README through the legacy Jekyll
+          # builder, so Pages exists but with `build_type: branch` — under which
+          # `configure-pages` answers `Get Pages site failed … Not Found` and the
+          # deploy never runs. `enablement` makes the workflow flip the source to
+          # Actions itself, so the live site does not depend on someone
+          # remembering a checkbox in Settings → Pages.
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
