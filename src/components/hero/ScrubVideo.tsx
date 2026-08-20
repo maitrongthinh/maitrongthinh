@@ -173,26 +173,18 @@ export default function ScrubVideo({
 
       paint(FRONTAL);
       setReady(true);
+
+      // Reduced motion, desktop: freeze on the frontal frame. Earlier this still
+      // scrubbed the head to the cursor; but on a reduced-motion machine the frame
+      // changing under the mouse still reads as the band "drifting" side to side —
+      // exactly what was reported after the translate was already gone. So here the
+      // band holds completely still: no frame scrub, no pointer acquisition, no
+      // tick. The cursor-driven head-look is kept only for visitors who have NOT
+      // asked for reduced motion.
+      if (reduced) return;
+
       release = acquirePointer(0.1);
       let curKey = -1;
-
-      // Reduced motion, desktop: map the cursor straight onto the frame — no eased
-      // trail, no parallax drift. The head still faces the cursor, it just snaps
-      // there rather than animating, so no motion happens that the visitor did not
-      // cause with the mouse itself.
-      if (reduced) {
-        releaseTick = onTick(() => {
-          if (!onScreen) return;
-          const w = window.innerWidth || 1;
-          const u = pointer.active ? Math.max(0, Math.min(1, pointer.rawX / w)) : 0.5;
-          const { i, flip } = select(u);
-          const key = i * 2 + (flip ? 1 : 0);
-          if (key === curKey) return;
-          curKey = key;
-          paint(i, flip);
-        });
-        return;
-      }
 
       // The head stays put — no camera drift, no zoom. Only the frame it shows
       // changes with the cursor, so it turns to face the mouse without the whole
