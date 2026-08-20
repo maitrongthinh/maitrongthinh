@@ -55,26 +55,13 @@ const MASK = (radiusVar: string) =>
   ' rgba(255,255,255,0) 100%)';
 
 /*
- * The scribed edge of the spotlight.
- *
- * Both hero images are the same dark rock formation, so where the mask blends
- * one into the other there is very little for the eye to catch and the whole
- * interaction reads as broken — which is exactly how it was reported. A hairline
- * at the outer edge of the mask states where the window is regardless of what is
- * inside it.
- *
- * Drawn as a gradient annulus rather than a bordered box because the reset in
- * `globals.css` forces `border-radius: 0` on every element with `!important`, so
- * a round border is not available. `mix-blend-difference` keeps it legible over
- * both the bright and the black parts of the photograph without picking a colour.
+ * The reveal used to carry a hairline ring scribed at the mask edge, added back
+ * when both layers were near-identical dark rock and the blend read as broken.
+ * With the current pair — bare rock against overgrown-and-lit — the two states
+ * are obviously different inside the light, so the ring only announced itself as
+ * a hard drawn circle: reported, fairly, as tacky. Gone. The spotlight is now the
+ * soft radial mask alone, a flashlight over the plate with no edge to catch.
  */
-const RING =
-  'radial-gradient(closest-side circle,' +
-  ' transparent 0,' +
-  ' transparent calc(100% - 1.5px),' +
-  ' rgba(255,255,255,0.85) calc(100% - 1.5px),' +
-  ' rgba(255,255,255,0.85) calc(100% - 0.5px),' +
-  ' transparent calc(100% - 0.5px))';
 
 export default function RevealLayer() {
   /*
@@ -257,20 +244,6 @@ export default function RevealLayer() {
                 backdropFilter: 'invert(1) contrast(1.08)',
                 WebkitBackdropFilter: 'invert(1) contrast(1.08)',
               }),
-        }}
-      />
-
-      {/* Scribed edge, following the same two properties as the mask. */}
-      <div
-        className="pointer-events-none absolute"
-        style={{
-          left: 'var(--mx)',
-          top: 'var(--my)',
-          width: 'calc(var(--r) * 2)',
-          height: 'calc(var(--r) * 2)',
-          transform: 'translate(-50%, -50%)',
-          backgroundImage: RING,
-          mixBlendMode: 'difference',
         }}
       />
     </div>

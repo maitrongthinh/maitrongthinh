@@ -27,6 +27,13 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
  * `public/images/hero-sprites.webp`, a `frames`-tile grid of the pan. This component
  * loads that one image (~190KB) and blits a tile per cursor position — random
  * access, both directions, no decoder, and the head tracks from the first frame.
+ *
+ * The clip is a HALF turn: frame 0 is a hard left profile and the pan ends
+ * frontal, so the back third of the sheet barely moves. A straight left-to-right
+ * map wasted the whole right half of the screen on a frozen frontal face — which
+ * is exactly the "it doesn't follow the cursor" report. Instead the centre of the
+ * viewport is frontal and both edges are the profile, with the right half drawn
+ * mirrored: cursor left, the head looks left; cursor right, it looks right.
  */
 
 /** Framing parallax: camera drift under the tracked head, not a stand-in for it. */
@@ -102,43 +109,64 @@ export default function ScrubVideo({
       canvas.width = tileW;
       canvas.height = tileH;
 
-      const paint = (i: number) => {
+      const paint = (i: number, flip = false) => {
         const { sx, sy } = tileFor(i, tileW, tileH);
+        if (!flip) {
+          view.drawImage(img, sx, sy, tileW, tileH, 0, 0, tileW, tileH);
+          return;
+        }
+        // Right half of the pan is faked by mirroring the left profile, so the
+        // head can look right off a clip that only ever turns left.
+        view.save();
+        view.translate(tileW, 0);
+        view.scale(-1, 1);
         view.drawImage(img, sx, sy, tileW, tileH, 0, 0, tileW, tileH);
+        view.restore();
       };
 
-      // Reduced motion: hold the mid-pan frame, facing forward. No tracking.
+      // Centre of the pan is the frontal, resting frame; frame 0 is the profile.
+      const FRONTAL = frames - 1;
+
+      // Cursor position (u, 0..1 across the viewport) to tile + mirror.
+      const select = (u: number) => {
+        const half = Math.abs(u - 0.5) * 2; // 0 dead-centre .. 1 at either edge
+        return { i: Math.round((1 - half) * FRONTAL), flip: u > 0.5 };
+      };
+
+      // Reduced motion: hold the frontal frame, facing forward. No tracking.
       if (reduced) {
-        paint(Math.floor(frames / 2));
+        paint(FRONTAL);
         setReady(true);
         return;
       }
 
-      // Touch devices have no hovering cursor to aim with, so the head ping-pongs
-      // slowly across the pan on its own — alive, but nobody has to chase it.
+      // Touch devices have no hovering cursor to aim with, so the head looks
+      // around on its own — left, front, right, front — alive without anyone
+      // having to chase it.
       if (isMobile) {
-        paint(Math.floor(frames / 2));
+        paint(FRONTAL);
         setReady(true);
         let last = -1;
         releaseTick = onTick((_dt, now) => {
           if (!onScreen) return;
-          const phase = (Math.sin(now / 2600) + 1) / 2; // 0..1, ~16s round trip
-          const i = Math.round(phase * (frames - 1));
-          if (i === last) return;
-          last = i;
-          paint(i);
+          const u = (Math.sin(now / 2600) + 1) / 2; // 0..1, ~16s round trip
+          const { i, flip } = select(u);
+          const key = i * 2 + (flip ? 1 : 0);
+          if (key === last) return;
+          last = key;
+          paint(i, flip);
         });
         return;
       }
 
-      // Desktop: cursor X across the viewport is the pan position. Selecting off the
-      // damped value rather than the raw pointer gives the turn weight — the head
-      // arrives a beat behind the cursor and settles.
-      paint(Math.floor(frames / 2));
+      // Desktop: cursor X across the viewport is where the head looks. Selecting
+      // off the damped value rather than the raw pointer gives the turn weight —
+      // the head arrives a beat behind the cursor and settles.
+      paint(FRONTAL);
       setReady(true);
       release = acquirePointer(0.1);
 
-      let cur = -1;
+      let curKey = -1;
       let px = 0;
       let py = 0;
       releaseTick = onTick((dt) => {
@@ -153,10 +181,12 @@ export default function ScrubVideo({
           0.55
         ).toFixed(3)}%, 0)`;
 
-        const i = Math.max(0, Math.min(frames - 1, Math.round(((px + 1) / 2) * (frames - 1))));
-        if (i === cur) return;
-        cur = i;
-        paint(i);
+        const u = (Math.max(-1, Math.min(1, px)) + 1) / 2;
+        const { i, flip } = select(u);
+        const key = i * 2 + (flip ? 1 : 0);
+        if (key === curKey) return;
+        curKey = key;
+        paint(i, flip);
       });
     };
 
