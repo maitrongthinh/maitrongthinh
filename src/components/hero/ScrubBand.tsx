@@ -11,7 +11,9 @@ import ScrubVideo from './ScrubVideo';
  * has to stay readable.
  *
  * Desaturated on purpose — the hero plate is the only place colour is allowed, so
- * this stays a texture. Drop the `grayscale` class to let the lava through.
+ * this stays a texture. The grayscale+contrast is baked into the canvas draw inside
+ * `ScrubVideo` (a CSS filter on the transformed, upscaled canvas re-ran every frame
+ * and tanked the frame rate); drop the `view.filter` line there to let the lava through.
  */
 export default function ScrubBand() {
   return (
@@ -21,7 +23,7 @@ export default function ScrubBand() {
       data-cursor="SCRUB"
     >
       <div className="relative h-[48vh] min-h-[260px] overflow-hidden">
-        <ScrubVideo className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.15]" />
+        <ScrubVideo className="absolute inset-0 h-full w-full object-cover" />
 
         <div className="pointer-events-none absolute inset-0 flex items-end justify-between p-5 sm:p-8">
           <p className="label text-ground/70">MOVE CURSOR — THE HEAD FOLLOWS</p>

@@ -238,15 +238,15 @@ const Effects = memo(function Effects({
  * page, and a phone GPU cannot hold 60fps through it. The geometry, camera
  * flight and audio reaction all still run.
  *
- * Starting DPR is deliberately below the device's own: 1.4 with a bloom pass over
- * it is indistinguishable from 1.75 at arm's length, and costs 36% fewer pixels.
+ * Starting DPR is deliberately below the device's own: 1.3 with a bloom pass over
+ * it is indistinguishable from 1.75 at arm's length, and costs ~45% fewer pixels.
  * `AdaptiveDpr` then moves it wherever the hardware can actually hold frame rate.
  */
 export default function Scene() {
   const isMobile = useIsMobile();
   const reduced = usePrefersReducedMotion();
 
-  const maxDpr = isMobile ? 1.25 : 1.4;
+  const maxDpr = isMobile ? 1.25 : 1.3;
   const postprocessing = !isMobile && !reduced;
 
   const glitchRef = useRef<GlitchEffect | null>(null);

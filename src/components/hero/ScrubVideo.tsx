@@ -109,6 +109,17 @@ export default function ScrubVideo({
       canvas.width = tileW;
       canvas.height = tileH;
 
+      // Desaturate in the 2D context, not with a CSS `filter` on the element.
+      // The canvas is drawn at tile resolution (~640×360) but displayed full-bleed
+      // and `object-cover` upscaled, and the desktop tick rewrites its transform
+      // every frame. A CSS filter on that transformed, upscaled layer re-runs the
+      // grayscale+contrast pass over the whole displayed area each frame — which is
+      // what collapsed the band to single-digit fps while postprocessing was on.
+      // Baking it into the small source draw runs the filter only on the ~30
+      // repaints and leaves the displayed layer a plain bitmap the compositor can
+      // translate for free. Canvas resize above resets context state, so set it here.
+      view.filter = 'grayscale(1) contrast(1.15)';
+
       const paint = (i: number, flip = false) => {
         const { sx, sy } = tileFor(i, tileW, tileH);
         if (!flip) {
@@ -198,9 +209,13 @@ export default function ScrubVideo({
         const k = damp(0.06, dt);
         px += (pointer.nx - px) * k;
         py += (pointer.ny - py) * k;
-        canvas.style.transform = `scale(${ZOOM}) translate3d(${(px * -PARALLAX).toFixed(3)}%, ${(
+        // Drift WITH the cursor, not against it. A negative sign here read as the
+        // frame sliding the opposite way to the mouse — reported, correctly, as
+        // backwards. The head already turns toward the cursor via `select`; the
+        // camera should lean the same way, not fight it.
+        canvas.style.transform = `scale(${ZOOM}) translate3d(${(px * PARALLAX).toFixed(3)}%, ${(
           py *
-          -PARALLAX *
+          PARALLAX *
           0.55
         ).toFixed(3)}%, 0)`;
 

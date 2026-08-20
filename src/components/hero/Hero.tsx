@@ -38,7 +38,7 @@ export default function Hero() {
       style={{ height: '100dvh', minHeight: '720px' }}
     >
       {/* Top row — pushed clear of the fixed header. */}
-      <div className="relative z-30 flex items-start justify-between px-5 pt-24 sm:px-8 sm:pt-28">
+      <div className="relative z-30 flex items-start justify-between px-5 pt-24 sm:px-8 sm:pt-24">
         <p
           style={{ animationDelay: '0.4s' }}
           className="label anim-fade-up max-w-[15ch] whitespace-pre-wrap text-ink sm:max-w-none"
@@ -130,7 +130,7 @@ export default function Hero() {
        * rather than a horizontal wipe. Letting the plate absorb exactly the leftover
        * space fixes the collision and gives the reveal room to be seen.
        */}
-      <figure className="relative z-30 mt-6 flex min-h-0 flex-1 flex-col px-5 sm:mt-8 sm:px-8">
+      <figure className="relative z-30 mt-4 flex min-h-0 flex-1 flex-col px-5 sm:mt-5 sm:px-8">
         <div
           data-cursor="LOOK"
           data-hero-plate

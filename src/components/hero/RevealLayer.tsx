@@ -44,15 +44,29 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 const spotlightRadius = (w: number, h: number) =>
   Math.round(Math.max(96, Math.min(heroLayers.radius, Math.min(w, h) * 0.46)));
 
-/** Gradient stops are kept verbatim from the reference interaction. */
-const MASK = (radiusVar: string) =>
-  `radial-gradient(circle ${radiusVar} at var(--mx) var(--my),` +
+/**
+ * Gradient stops kept verbatim from the reference interaction.
+ *
+ * The spotlight is a FIXED radial-gradient tile centred in its own box; per frame
+ * only `mask-position` moves it. Positioning the circle *inside* the gradient
+ * (`at var(--mx) var(--my)`) instead forces the browser to re-rasterise the whole
+ * plate-sized mask on every cursor move — a main-thread raster that visibly drags
+ * the frame rate down. A fixed tile is rasterised once and merely translated, which
+ * the compositor does for free.
+ */
+const MASK =
+  'radial-gradient(circle closest-side at center,' +
   ' rgba(255,255,255,1) 0%,' +
   ' rgba(255,255,255,1) 40%,' +
   ' rgba(255,255,255,0.75) 60%,' +
   ' rgba(255,255,255,0.4) 75%,' +
   ' rgba(255,255,255,0.12) 88%,' +
   ' rgba(255,255,255,0) 100%)';
+
+/** Tile is 2r square so `closest-side` maps the gradient stops onto the radius. */
+const MASK_SIZE = 'calc(var(--r) * 2) calc(var(--r) * 2)';
+/** Centre the tile on the cursor by shifting back half the tile (= r) on each axis. */
+const MASK_POS = 'calc(var(--mx) - var(--r)) calc(var(--my) - var(--r))';
 
 /*
  * The reveal used to carry a hairline ring scribed at the mask edge, added back
@@ -198,8 +212,6 @@ export default function RevealLayer() {
     ) : null;
   }
 
-  const radius = 'var(--r)';
-
   return (
     <div
       ref={hostRef}
@@ -228,11 +240,14 @@ export default function RevealLayer() {
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          maskImage: MASK(radius),
-          WebkitMaskImage: MASK(radius),
-          maskSize: '100% 100%',
-          WebkitMaskSize: '100% 100%',
+          maskImage: MASK,
+          WebkitMaskImage: MASK,
+          maskSize: MASK_SIZE,
+          WebkitMaskSize: MASK_SIZE,
+          maskPosition: MASK_POS,
+          WebkitMaskPosition: MASK_POS,
           maskRepeat: 'no-repeat',
+          WebkitMaskRepeat: 'no-repeat',
           ...(hasReveal
             ? { backgroundImage: `url(${revealSrc})` }
             : {
