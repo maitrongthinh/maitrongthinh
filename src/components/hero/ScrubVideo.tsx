@@ -176,14 +176,16 @@ export default function ScrubVideo({
         view.restore();
       };
 
-      // Centre of the pan is the frontal, resting frame; frame 0 is the profile.
+      // Frame 0 is the left profile; the last frame is frontal — a half turn.
       const FRONTAL = frames - 1;
 
-      // Cursor position (u, 0..1 across the viewport) to tile + mirror.
-      const select = (u: number) => {
-        const half = Math.abs(u - 0.5) * 2; // 0 dead-centre .. 1 at either edge
-        return { i: Math.round((1 - half) * FRONTAL), flip: u > 0.5 };
-      };
+      // Map the cursor straight along the real pan — no mirroring. Cursor to the
+      // left shows the left-profile frames (the head looks left); toward the right
+      // it eases back to frontal. The head follows the cursor's SIDE without being
+      // glued to it. We deliberately never flip the clip: mirroring the pan to fake
+      // a right-turn made the face jump to its mirror image at the centre, which
+      // read as an ugly teleport. A clean half-turn looks better than a fake one.
+      const select = (u: number) => ({ i: Math.round(u * FRONTAL), flip: false });
 
       // Motion is suppressed only when it is autonomous. A head that turns to face
       // the cursor is direct manipulation — the visitor drives every frame — so it
