@@ -133,8 +133,13 @@ export default function ScrubVideo({
         return { i: Math.round((1 - half) * FRONTAL), flip: u > 0.5 };
       };
 
-      // Reduced motion: hold the frontal frame, facing forward. No tracking.
-      if (reduced) {
+      // Motion is suppressed only when it is autonomous. A head that turns to face
+      // the cursor is direct manipulation — the visitor drives every frame — so it
+      // survives prefers-reduced-motion. What gets cut there is the motion nobody
+      // asked for: the mobile auto-look loop below, and the desktop drift/zoom.
+
+      // Touch/coarse pointer with reduced motion: nothing drives it, hold frontal.
+      if (isMobile && reduced) {
         paint(FRONTAL);
         setReady(true);
         return;
@@ -159,14 +164,32 @@ export default function ScrubVideo({
         return;
       }
 
-      // Desktop: cursor X across the viewport is where the head looks. Selecting
-      // off the damped value rather than the raw pointer gives the turn weight —
-      // the head arrives a beat behind the cursor and settles.
       paint(FRONTAL);
       setReady(true);
       release = acquirePointer(0.1);
-
       let curKey = -1;
+
+      // Reduced motion, desktop: map the cursor straight onto the frame — no eased
+      // trail, no parallax drift. The head still faces the cursor, it just snaps
+      // there rather than animating, so no motion happens that the visitor did not
+      // cause with the mouse itself.
+      if (reduced) {
+        releaseTick = onTick(() => {
+          if (!onScreen) return;
+          const w = window.innerWidth || 1;
+          const u = pointer.active ? Math.max(0, Math.min(1, pointer.rawX / w)) : 0.5;
+          const { i, flip } = select(u);
+          const key = i * 2 + (flip ? 1 : 0);
+          if (key === curKey) return;
+          curKey = key;
+          paint(i, flip);
+        });
+        return;
+      }
+
+      // Desktop: cursor X across the viewport is where the head looks. Selecting
+      // off the damped value rather than the raw pointer gives the turn weight —
+      // the head arrives a beat behind the cursor and settles.
       let px = 0;
       let py = 0;
       releaseTick = onTick((dt) => {

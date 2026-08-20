@@ -127,15 +127,6 @@ export default function RevealLayer() {
     const el = hostRef.current;
     if (!el) return;
 
-    // With reduced motion, park the spotlight centre-plate and leave it there.
-    if (reduced) {
-      const rect = el.getBoundingClientRect();
-      el.style.setProperty('--mx', '50%');
-      el.style.setProperty('--my', '50%');
-      el.style.setProperty('--r', `${spotlightRadius(rect.width, rect.height)}px`);
-      return;
-    }
-
     const release = acquirePointer(heroLayers.ease);
     const releaseScroll = acquireScroll();
 
@@ -175,8 +166,14 @@ export default function RevealLayer() {
 
     const releaseTick = onTick(() => {
       if (!visible) return;
-      el.style.setProperty('--mx', `${(pointer.x - left).toFixed(1)}px`);
-      el.style.setProperty('--my', `${(pointer.y - (docTop - scrollState.y)).toFixed(1)}px`);
+      // The spotlight follows the cursor in both motion modes — the visitor drives
+      // it, so it is direct manipulation, not autonomous animation. Under reduced
+      // motion, drop the eased trail (read the raw pointer) so the mask sits exactly
+      // under the cursor with no drift; otherwise ride the shared eased position.
+      const cx = reduced ? pointer.rawX : pointer.x;
+      const cy = reduced ? pointer.rawY : pointer.y;
+      el.style.setProperty('--mx', `${(cx - left).toFixed(1)}px`);
+      el.style.setProperty('--my', `${(cy - (docTop - scrollState.y)).toFixed(1)}px`);
     });
 
     return () => {
