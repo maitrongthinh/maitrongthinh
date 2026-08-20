@@ -5,6 +5,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { pointer } from '@/lib/pointer';
 import { scrollState } from '@/lib/scrollState';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 /**
  * Flies the camera along a fixed spline as the page scrolls.
@@ -20,6 +21,7 @@ import { scrollState } from '@/lib/scrollState';
  */
 export default function CameraRig() {
   const { camera } = useThree();
+  const reduced = usePrefersReducedMotion();
 
   const { path, look } = useMemo(() => {
     const path = new THREE.CatmullRomCurve3(
@@ -77,8 +79,13 @@ export default function CameraRig() {
     look.getPointAt(t, scratch.lookAt);
 
     // Pointer parallax — orbit slightly, and never more than a couple of units.
-    scratch.target.x += pointer.nx * 1.6;
-    scratch.target.y += -pointer.ny * 1.1;
+    // This is cursor-driven camera drift, so it is suppressed under reduced motion:
+    // the scene then holds to the scroll path instead of wandering left/right under
+    // the cursor. Scroll flight stays — that is motion the visitor asks for.
+    if (!reduced) {
+      scratch.target.x += pointer.nx * 1.6;
+      scratch.target.y += -pointer.ny * 1.1;
+    }
 
     scratch.smoothed.lerp(scratch.target, k);
     scratch.smoothedLook.lerp(scratch.lookAt, k);

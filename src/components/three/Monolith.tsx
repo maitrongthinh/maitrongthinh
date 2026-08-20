@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { pointer } from '@/lib/pointer';
 import { scrollState } from '@/lib/scrollState';
 import { useAudioLevels } from '@/components/audio/AudioProvider';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 /** Deterministic PRNG so the structure is identical on every load and on the server. */
 function mulberry32(seed: number) {
@@ -113,6 +114,7 @@ export default function Monolith() {
   const groupRef = useRef<THREE.Group>(null);
 
   const levels = useAudioLevels();
+  const reduced = usePrefersReducedMotion();
 
   const slabs = useMemo(buildSlabs, []);
 
@@ -201,8 +203,13 @@ export default function Monolith() {
     // that jumped by 2π sends the monolith whipping backwards through a full turn.
     // That whip was the reported roughness, not the frame rate — the hero holds a
     // flat 60fps either side of this change.
-    const targetY = pointer.scrubTotal * Math.PI * 2 + scrollState.progress * Math.PI * 1.2;
-    const targetX = pointer.ny * 0.16;
+    //
+    // Under reduced motion the cursor-driven wind and tilt drop out: the structure
+    // then only turns with scroll, so it holds still while the mouse moves instead
+    // of spinning left/right under it. Scroll morphing and audio reaction stay.
+    const targetY =
+      (reduced ? 0 : pointer.scrubTotal * Math.PI * 2) + scrollState.progress * Math.PI * 1.2;
+    const targetX = reduced ? 0 : pointer.ny * 0.16;
 
     group.rotation.y += (targetY - group.rotation.y) * Math.min(1, k * 0.9);
     group.rotation.x += (targetX - group.rotation.x) * Math.min(1, k * 0.9);
