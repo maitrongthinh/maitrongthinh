@@ -116,18 +116,63 @@ export default function ScrubVideo({
       // translate for free. Canvas resize above resets context state, so set it here.
       view.filter = 'grayscale(1) contrast(1.15)';
 
+      // The source clip doesn't just turn the head — it PANS it across the frame:
+      // measured on the live sheet, the head sits at ~30% width when frontal and
+      // ~70% in profile. Blitting tiles straight to the canvas therefore slid the
+      // whole figure from one side to the other as the cursor moved (the reported
+      // "đầu dịch qua lại trái phải"), even though the canvas element never moves.
+      //
+      // Fix: measure each frame's head centre once, off-screen, then draw every
+      // frame shifted so that centre lands on the canvas midline. The head then
+      // turns in place — placement fixed, gaze still tracking the cursor 100%. Any
+      // gap the shift opens is filled with the plate's own background colour, so
+      // it stays invisible.
+      const headCx = new Array<number>(frames).fill(0.5);
+      let bgFill = '#e9e7e0';
+      try {
+        const off = document.createElement('canvas');
+        off.width = img.width;
+        off.height = img.height;
+        const octx = off.getContext('2d', { willReadFrequently: true });
+        if (octx) {
+          octx.drawImage(img, 0, 0);
+          for (let i = 0; i < frames; i++) {
+            const { sx, sy } = tileFor(i, tileW, tileH);
+            const data = octx.getImageData(sx, sy, tileW, tileH).data;
+            let sw = 0;
+            let sxw = 0;
+            for (let y = 0; y < tileH; y += 2) {
+              for (let x = 0; x < tileW; x += 2) {
+                const o = (y * tileW + x) * 4;
+                const lum = (data[o] + data[o + 1] + data[o + 2]) / 3;
+                const wt = Math.max(0, 180 - lum); // darkness = the figure
+                sw += wt;
+                sxw += wt * x;
+              }
+            }
+            if (sw > 0) headCx[i] = sxw / sw / tileW;
+          }
+          const c = octx.getImageData(2, 2, 1, 1).data; // light plate behind the figure
+          bgFill = `rgb(${c[0]},${c[1]},${c[2]})`;
+        }
+      } catch {
+        // Cross-origin/read failure: fall back to straight, uncentred blits.
+      }
+
       const paint = (i: number, flip = false) => {
         const { sx, sy } = tileFor(i, tileW, tileH);
-        if (!flip) {
-          view.drawImage(img, sx, sy, tileW, tileH, 0, 0, tileW, tileH);
-          return;
-        }
-        // Right half of the pan is faked by mirroring the left profile, so the
-        // head can look right off a clip that only ever turns left.
+        // Shift so this frame's head centre lands on the canvas midline.
+        const dx = (0.5 - headCx[i]) * tileW;
         view.save();
-        view.translate(tileW, 0);
-        view.scale(-1, 1);
-        view.drawImage(img, sx, sy, tileW, tileH, 0, 0, tileW, tileH);
+        view.fillStyle = bgFill;
+        view.fillRect(0, 0, tileW, tileH);
+        if (flip) {
+          // Mirror about the canvas centre so the head can face right off a clip
+          // that only ever turns left; the same dx keeps it centred.
+          view.translate(tileW, 0);
+          view.scale(-1, 1);
+        }
+        view.drawImage(img, sx, sy, tileW, tileH, dx, 0, tileW, tileH);
         view.restore();
       };
 
