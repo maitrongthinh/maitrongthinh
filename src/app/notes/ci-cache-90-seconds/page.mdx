@@ -1,0 +1,50 @@
+import NoteMeta from '@/components/notes/NoteMeta';
+import NoteFooter from '@/components/notes/NoteFooter';
+
+export const metadata = {
+  title: 'Twenty-two minutes to ninety seconds',
+  description:
+    'A content-addressed build cache, the three bugs that made it lie to us, and how to tell when a cache hit is wrong.',
+};
+
+<NoteMeta slug="ci-cache-90-seconds" />
+
+# Twenty-two minutes to ninety seconds
+
+The pipeline took 22 minutes and rebuilt everything on every push, including 40 packages that had not been touched in months. The fix is old and well understood: hash the inputs, key the outputs by that hash, and skip any step whose key already exists.
+
+The interesting part is not the speedup. It is that a build cache is a correctness feature that happens to be fast, and the failure mode is silent.
+
+## What goes into the key
+
+A cache key has to cover everything that can change the output. Miss one input and you serve a stale artifact that looks fine:
+
+- Source files for the package, content-hashed — not mtimes, which change on every checkout.
+- The resolved dependency graph, including transitive versions from the lockfile.
+- The toolchain: compiler version, target, feature flags.
+- Environment that leaks into output — `NODE_ENV`, build-time constants, anything read from `process.env` during the build.
+- The build script itself.
+
+Anything not in the key is something you are betting does not affect the result. Write those bets down, because that list is where the bugs live.
+
+## The three bugs
+
+**Absolute paths in output.** A source map generated on a build agent embedded `/home/runner/work/...`. Cached, restored on a developer machine, and every stack trace pointed at a directory that did not exist. Fix: normalise paths to be repo-relative before hashing and before writing.
+
+**Environment variables not in the key.** A feature flag read at build time was baked into the bundle. Two builds with identical source and different flags produced the same key, so the second got the first one's artifact — with the wrong flag compiled in. It shipped. Fix: an explicit allowlist of build-affecting environment variables, hashed into the key, and a lint rule that fails the build on `process.env` access outside that list.
+
+**Non-deterministic output.** Two builds of the same input produced different bytes: a timestamp in a banner comment, and a plugin that iterated a `Set`. Neither was wrong, but both meant the cache could never prove it was correct. Fix: sort every iteration order, and no clocks in output.
+
+## The check that pays for itself
+
+In CI, on a small random fraction of jobs, ignore the cache, build from scratch, and compare the result to what the cache would have served. Alert on any difference.
+
+That check found bug two. Without it we would have found bug two from a customer.
+
+## What you get
+
+22 minutes to about 90 seconds on a typical push, because a typical push touches two packages and everything else is a hash lookup and a download. Cold builds are unchanged — the cache does not make anything faster, it only makes repeated work disappear.
+
+The other thing you get is a precise answer to "what does this package actually depend on", because you were forced to enumerate it. That turned out to be worth roughly as much as the time.
+
+<NoteFooter slug="ci-cache-90-seconds" />

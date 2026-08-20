@@ -1,246 +1,159 @@
-<!--Banner-->
-![Kiran1689 Banner Image](./banner.png)
+<div align="center">
 
-<!--Night Owl image-->
-<div>
-  <img align="right" width="40%" src="https://owlbertsio-resized.s3.amazonaws.com/Popper.psd.full.png">
+<img
+  src="https://capsule-render.vercel.app/api?type=venom&color=0:060607,100:2b2b2f&height=190&section=header&text=MAI%20TRONG%20THINH&fontColor=f2f0eb&fontSize=54&fontAlignY=36&desc=Full-Stack%20Developer%20from%20Vietnam&descAlignY=57&descSize=17"
+  alt="Mai Trọng Thịnh — Full-Stack Developer"
+  width="100%"
+/>
+
+<img src="https://flagcdn.com/w40/vn.png" width="34" alt="Cờ Việt Nam" />
+&nbsp;&nbsp;**Việt Nam** &nbsp;·&nbsp; `thinh_0107` &nbsp;·&nbsp; Open to work
+
+<a href="https://www.typescriptlang.org">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&pause=1200&color=F2F0EB&center=true&vCenter=true&width=760&lines=I+build+software+that+runs+without+me+watching+it.;Discord+bots+%C2%B7+agent+platforms+%C2%B7+backend+services;C%2B%2B+%C2%B7+JavaScript+%C2%B7+Python+%C2%B7+Node.js+%C2%B7+React" alt="I build software that runs without me watching it" />
+</a>
+
+<br />
+
+<a href="https://maitrongthinh.github.io/maitrongthinh/">
+  <img src="https://img.shields.io/badge/PORTFOLIO-060607?style=for-the-badge&labelColor=060607&color=f2f0eb" alt="Portfolio" />
+</a>
+<a href="https://discord.gg/X3TT4k9jnT">
+  <img src="https://img.shields.io/badge/DISCORD-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" />
+</a>
+<a href="http://nemobot.bond/">
+  <img src="https://img.shields.io/badge/NEMOBOT-1a1a1c?style=for-the-badge&logo=probot&logoColor=f2f0eb" alt="NemoBot" />
+</a>
+<a href="https://www.youtube.com/@thinhdzs1vn">
+  <img src="https://img.shields.io/badge/YOUTUBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" />
+</a>
+<a href="https://www.tiktok.com/@em_la_dev">
+  <img src="https://img.shields.io/badge/TIKTOK-060607?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok" />
+</a>
+<a href="https://www.facebook.com/trong.thinh.379410">
+  <img src="https://img.shields.io/badge/FACEBOOK-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" />
+</a>
+
+<img src="https://komarev.com/ghpvc/?username=maitrongthinh&style=flat-square&color=f2f0eb&label=PROFILE+VIEWS" alt="Profile views" />
+
 </div>
-
-<!--Header Name-->
-# <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> ɪ'ᴍ Thinh! 
-*Digital Craftsman (Developer / Programmer)*
-<br /> 
-
-<!--Start Intro-->               
-<p align="left">
-  Tôi là một Full Stack Developer và đam mê Machine Learning, với niềm yêu thích mãnh liệt dành cho Python, React.js, Node.js, Django, RDBMS, REST API và Data Visualization.
-</p>
-
-- ✨ Học trò của cuộc sống :)
-- 🌱 Hiện tôi không ngừng học hỏi, vì mỗi ngày là một cơ hội phát triển.
-- 💁‍♂️ Thành viên uy tín và học tập và sinh hoạt tai [CLB FCT](https://fct-club.com/)
-- 🏙 chủ của groups [Anime No Machi](https://www.facebook.com/groups/animenomachi).
-- ✍ Tôi thường viết blog kỹ thuật; hãy ghé thăm [DEV](https://dev.to/thinhdepzai) để theo dõi các bài viết của tôi.
-- ❤ Luôn góp sức cho Open Source.
-- 💻 Tham khảo [Portfolio](http://thinh.my-style.in/) để biết thêm thông tin về tôi.
-<!--End Intro-->
-
-<!--Profile Count Badge-->
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=Kiran1689&label=Profile%20views&color=770677&style=for-the-badge&logo=star" alt="Kiran1689" style="padding-right:20px;" />
-</p>
 
 ---
 
+## `01` — Về tôi / About
 
-<!--Languages and Tools Section-->       
-<h2 align="center">Tᴇᴄʜ sᴛᴀᴄᴋ & Lᴀᴛᴇsᴛ ʙʟᴏɢs</h2> 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./Skills_Animation_Dark.gif">
-  <source media="(prefers-color-scheme: light)" srcset="./Skills_Animation_White.gif">
-  <img align="left" alt="GIF description" src="./Skills_Animation_White.gif">
-</picture>
-<br />
+```yaml
+name:      Mai Trọng Thịnh
+role:      Full-Stack Developer
+country:   Việt Nam 🇻🇳
+building:  NemoBot — nền tảng Discord AI agent
+learning:  hệ thống phân tán, LLM tooling
+discord:   thinh_0107
+motto:     "ship it, then measure it"
+```
 
-<h3 align="left">Đang Học</h3>
-<ul align="left">
-  <li>Trau dồi kiến thức về HTML,CSS,Javascrips.</li>
-  <li>Khám phá các mẫu React.js nâng cao cùng kỹ thuật quản lý state.</li>
-  <li>Nâng cao kỹ năng điện toán đám mây với AWS & Azure.</li>
-  <li>khám phá thêm về kinh nghiệm sử dụng.</li>
-  <li>học c++ để làm game.</li>
-</ul>
-  
-<h3 align="left">Bài </h3>
-<ul align="left">
-  <li><a href="https://dev.to/dev_kiran/debug-like-a-pro-in-2025-3lg1">😎Debug Like a Pro in 2025🧑‍💻</a></li>
-  <li><a href="https://dev.to/dev_kiran/open-source-hidden-gems-v2-4e8j">✨Open-Source Hidden Gems v2🤯</a></li>
-  <li><a href="https://dev.to/dev_kiran/you-should-try-these-tools-in-your-next-project-469">🫵You Should Try These Tools In Your Next Project</a></li>
-</ul>
-<br />
-<br />
-<br />
-<br />
+- 🤖 Tôi làm **Discord bot và agent platform** — thứ chạy 24/7 mà không cần tôi ngồi nhìn.
+- 🛠️ Backend bằng **Node.js / Python**, thuật toán và tool nhỏ bằng **C++**, giao diện bằng **React**.
+- 🌐 Sản phẩm riêng: **[NemoBot](http://nemobot.bond/)** — tự host, tự vận hành.
+- 📈 Repo công khai đầu tiên: **08/2024**. Từ đó tới nay: **30+ repo**, vẫn đang đẩy tiếp.
+- 🇻🇳 Viết code ở Việt Nam, cho bất cứ ai trên internet dùng được.
 
+---
 
+## `02` — Tech stack
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--Trophies Section-->   
-<h2 align="center">🏆 GitHub Trophies 🏆</h2>
-<p align="center">
-  <a href="https://github.com/maitrongthinh">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&row=2&column=6&margin-w=20&margin-h=20&theme=monokai">
-      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&row=2&column=6&margin-w=20&margin-h=20">
-      <img alt="GitHub Trophies" src="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&no-frame=true&row=2&column=6&margin-w=20&margin-h=20">
-    </picture>
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/daytonaio/daytona">
-    <img src="https://api.vaunt.dev/v1/github/entities/Kiran1689/achievements?format=svg&limit=6" width="400" />
-  </a>
-</p>
-<br />
-
-<!--Github stats Table--> 
-<h2 align="center">📊 GitHub Stats 📊</h2>
-
-<table width="100%">
-  <tr>
-    <td width="50%">
-      <h3 align="center"><strong>GitHub Stats</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://github-readme-stats.vercel.app/api?username=Kiran1689&count_private=true&show_icons=true&theme=nightowl&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff&rank_icon=github&hide=prs,issues,contribs&show=reviews,prs_merged,prs_merged_percentage" alt="GitHub Stats" />
-        </a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center"><strong>Streak Stats</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://streak-stats.demolab.com?user=Kiran1689&theme=nightowl&background=0,000000,441350&fire=ffeb95&ring=ffeb95&sideNums=ffffff&sideLabels=ffffff&dates=c56a90&currStreakNum=ffffff" alt="Streak Stats" />
-        </a>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center"><strong>Dự Án Mới Nhất</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689/Awesome-Dev-Portfolios">
-          <img align="center" width="470" src="https://github-readme-stats.vercel.app/api/pin/?username=Kiran1689&repo=Awesome-Dev-Portfolios&theme=nightowl&show_owner=true&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff" alt="Awesome-Dev-Portfolios" />
-        </a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center"><strong>Các Contributions Nổi Bật</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://github-contributor-stats.vercel.app/api?username=Kiran1689&limit=2&theme=nightowl&show_owner=true&combine_all_yearly_contributions=false&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff" alt="Top Repo" />
-        </a>
-      </p>
-    </td>
-  </tr>
-</table>
-<br />
-
-<!--Contribution Graph-->
-<h2 align="center">📈 Biểu Đồ Contributions 📈</h2>
 <div align="center">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Kiran1689&bg_color=220a28&&color=ffffff&line=c56a90&point=ffeb95&area=false&hide_border=false" border-radius="15">
+
+**Languages**
+
+<img src="https://skillicons.dev/icons?i=cpp,js,python,html,css&theme=dark" alt="C++, JavaScript, Python, HTML, CSS" />
+
+**Runtime · Framework · Tools**
+
+<img src="https://skillicons.dev/icons?i=nodejs,react,nextjs,git,github,vscode&theme=dark" alt="Node.js, React, Next.js, Git, GitHub, VS Code" />
+
 </div>
 
+---
 
+## `03` — Số liệu / Stats
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--Dynamic Quote card updates everyday at 12 PM--> 
-<h2 align="center">🌟 Daily Inspiration: Suy Ngẫm Của Ngày 🌟</h2>
-
-<!--STARTS_HERE_QUOTE_CARD-->
-<p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Carlos%20Ruiz%20Zafon&quote=Never%20trust%20he%20who%20trusts%20everyone.&theme=dark&bg_color=220a28&author_color=ffeb95&accent_color=c56a90">
-</p>
-<!--ENDS_HERE_QUOTE_CARD-->
-
-<!--Contact Section--> 
-
-<h2 align="center">🤝 Kết Nối Với Tôi 🤝</h2>
 <div align="center">
-  
-  <a href="mailto:trongthinhm@gmail.com" target="_blank">
-    <img src="./gmail.png" width=50 height=50 alt="trongthinhm@gmail.com" style="margin-bottom: 5px;" />
-  </a>
 
-  <a href="https://x.com/kiran__a__n" target="_blank">
-    <img src="./twitter.png" width=50 height=50 alt="kiran__a__n" style="margin-bottom: 5px;" />
-  </a>
+<img
+  height="170"
+  src="https://github-readme-stats.vercel.app/api?username=maitrongthinh&show_icons=true&hide_border=true&bg_color=060607&title_color=f2f0eb&text_color=8d8d88&icon_color=f2f0eb&ring_color=f2f0eb"
+  alt="GitHub stats"
+/>
+<img
+  height="170"
+  src="https://github-readme-stats.vercel.app/api/top-langs/?username=maitrongthinh&layout=compact&langs_count=8&hide_border=true&bg_color=060607&title_color=f2f0eb&text_color=8d8d88"
+  alt="Top languages"
+/>
 
-  <a href="https://www.instagram.com/trongthinhm/" target="_blank">
-    <img src="./instagram.png" width=50 height=50 alt="kiran_a_n" style="margin-bottom: 5px;" />
-  </a>
+<img
+  height="170"
+  src="https://streak-stats.demolab.com?user=maitrongthinh&hide_border=true&background=060607&stroke=262628&ring=f2f0eb&fire=f2f0eb&currStreakLabel=f2f0eb&sideLabels=8d8d88&dates=55554f"
+  alt="Commit streak"
+/>
 
-  <a href="https://github.com/maitrongthinh" target="_blank">
-    <img src="./github.png" width=50 height=50 alt="Kiran1689" style="margin-bottom: 5px;" />
-  </a>
+<img
+  src="https://github-profile-trophy.vercel.app/?username=maitrongthinh&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=6"
+  alt="Trophies"
+/>
 
-  <a href="https://www.linkedin.com/in/kiran-a-n/" target="_blank">
-    <img src="./linkedin.png" width=50 height=50 alt="linkedin" style="margin-bottom: 5px;" />
-  </a>
-
-  <a href="https://dev.to/thinhdepzai" target="_blank">
-    <img src="./dev_to.png" width=50 height=50 alt="dev_kiran" style="margin-bottom: 5px;" />
-  </a>
-</div>
-<br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--Buy me a coffee-->
-<div align="center">
-  <a href="https://www.buymeacoffee.com/Kiran1689" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 200px !important;">
-  </a>
 </div>
 
-<!--Footer--> 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
-</p>
+---
+
+## `04` — Repo này là gì
+
+Đây vừa là **profile README**, vừa là **source code của portfolio site**:
+
+<div align="center">
+
+### ▸ [maitrongthinh.github.io/maitrongthinh](https://maitrongthinh.github.io/maitrongthinh/) ◂
+
+</div>
+
+Next.js static export, brutalist đen trắng, spotlight reveal chạy theo con trỏ, video
+scrub theo chuột, scene React Three Fiber phản ứng với nhạc. Không server, không
+database — GitHub Actions build rồi Pages serve.
+
+| | |
+| --- | --- |
+| Cách sửa nội dung, cấu trúc, kiến trúc | [`docs/SITE.md`](docs/SITE.md) |
+| Cách deploy, `BASE_PATH`, lỗi thường gặp | [`DEPLOY.md`](DEPLOY.md) |
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static export vào out/
+```
+
+---
+
+## `05` — Liên hệ / Contact
+
+Nhanh nhất là **Discord**: `thinh_0107` — hoặc vào thẳng server.
+
+<div align="center">
+
+<a href="https://discord.gg/X3TT4k9jnT">
+  <img src="https://img.shields.io/badge/JOIN%20MY%20SERVER-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord server" />
+</a>
+
+<br /><br />
+
+<img src="https://flagcdn.com/w40/vn.png" width="26" alt="Cờ Việt Nam" />
+&nbsp;**Made in Vietnam**&nbsp;
+<img src="https://flagcdn.com/w40/vn.png" width="26" alt="Cờ Việt Nam" />
+
+<sub><i>Tự học, tự build, tự chịu trách nhiệm. Cảm ơn bạn đã ghé qua.</i></sub>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2b2b2f,100:060607&height=110&section=footer" width="100%" alt="" />
+
+</div>
+
 
 

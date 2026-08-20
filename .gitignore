@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*.local
+
+# Local verification output (screenshots, headless Chrome profiles, server logs)
+.tmp-verify/
+.tmp-*

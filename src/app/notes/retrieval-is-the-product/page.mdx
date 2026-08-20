@@ -1,0 +1,52 @@
+import NoteMeta from '@/components/notes/NoteMeta';
+import NoteFooter from '@/components/notes/NoteFooter';
+
+export const metadata = {
+  title: 'Retrieval is the product',
+  description:
+    'Most RAG systems fail at the retrieval step and blame the model. Notes from rebuilding one that did not.',
+};
+
+<NoteMeta slug="retrieval-is-the-product" />
+
+# Retrieval is the product
+
+Every failing RAG system I have been handed had the same diagnosis attached to it: *the model hallucinates*. In every case the model was answering faithfully from the context it was given, and the context was wrong.
+
+## The uncomfortable measurement
+
+Before touching prompts, measure this: for a set of questions with known answers, how often does the correct chunk appear anywhere in the retrieved set?
+
+If that number is 60%, the model is being asked to answer 40% of questions from material that does not contain the answer. No prompt fixes that. A better model makes it worse, because a better model is more willing to construct something plausible from what is in front of it.
+
+That measurement is cheap and almost nobody takes it, because it points the finger at the boring half of the system.
+
+## Why pure vector search underperforms
+
+Embeddings are good at topic and bad at identity. "What is the retry limit for the ingest worker?" embeds close to every paragraph about ingest workers and retries, and no closer to the one containing the number `5` than to the twelve that do not.
+
+Three fixes, in order of how much they bought:
+
+1. **Hybrid retrieval.** Run BM25 alongside the vector search and fuse the rankings. Lexical search is exactly right for identifiers, error codes, config keys, proper nouns — the things users actually ask about. This was the single biggest jump.
+2. **Reranking.** Retrieve 50, rerank with a cross-encoder, keep 8. The reranker sees query and document together instead of comparing two independently-computed vectors, and it is dramatically better at deciding relevance. Costs about 40ms.
+3. **Chunking that respects structure.** Fixed 512-token windows cut tables in half and orphan headings from the text under them. Splitting on document structure and prefixing every chunk with its heading path fixed a whole class of "the answer was retrieved but unusable".
+
+## Chunks are not documents
+
+The thing you embed and the thing you show the model do not have to be the same thing.
+
+Embed something small and specific enough to match a query. Then expand it — pull in neighbouring chunks, the parent section, the heading path — before it goes into the prompt. Retrieval precision wants small; answer quality wants context. Decoupling those two is free and most implementations do not do it.
+
+## Citations that point at the right sentence
+
+Users trust a system exactly as far as they can check it. A citation to a 40-page document is not checkable and does not earn trust.
+
+Track character offsets from the original source through chunking, retrieval, and generation, then have the model cite chunk IDs and resolve those to offsets on the way out. It is bookkeeping, not intelligence, and it is the feature people mention first.
+
+## Where the model actually matters
+
+Once retrieval was fixed, model choice mattered for exactly two things: refusing to answer when the context genuinely did not contain the answer, and holding a coherent line across a long multi-part response.
+
+Both are real, both are worth paying for. Neither is what people mean when they say the model hallucinates.
+
+<NoteFooter slug="retrieval-is-the-product" />

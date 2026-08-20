@@ -1,0 +1,99 @@
+import NoteMeta from '@/components/notes/NoteMeta';
+import NoteFooter from '@/components/notes/NoteFooter';
+
+export const metadata = {
+  title: 'Sixty frames is a budget, not a goal',
+  description:
+    'Why every cursor effect on this site reads from one requestAnimationFrame loop instead of React state.',
+};
+
+<NoteMeta slug="sixty-frames" />
+
+# Sixty frames is a budget, not a goal
+
+This page runs four separate things off the cursor at once: a custom cursor, a spotlight mask, magnetic buttons, and a 3D structure that rotates as you move. The naive version of that is four `mousemove` listeners, four pieces of React state, and a frame rate that collapses the moment anything else needs the main thread.
+
+## The rule
+
+State that changes every frame does not belong in React.
+
+React's job is to describe what the page **is**. A cursor position at 60Hz is not a description of anything — it is a stream. Putting it in `useState` means a reconciliation pass, a diff, and a commit sixty times a second, for a value that only ever ends up in a `transform`.
+
+So the pointer lives in a plain module object:
+
+```ts
+export const pointer = {
+  rawX: 0, rawY: 0,
+  x: 0, y: 0,
+  nx: 0, ny: 0,
+  dx: 0,
+  scrub: 0, scrubTotal: 0,
+  velX: 0, speed: 0,
+  active: false,
+};
+```
+
+One loop updates it. Consumers read it from inside their own animation frame and write straight to the DOM or to a Three.js object. Nothing re-renders. The component tree does not know the cursor exists.
+
+Two of those fields exist only because of a bug worth naming. `scrub` is a cursor-travel accumulator wrapped into `0..1`, which is what a repeating texture or a looping strip wants. The 3D structure eased its rotation towards `scrub * 2π` — so every time the accumulator wrapped from 1 back to 0, the target jumped a full turn and the whole thing whipped backwards. The fix is not smoothing. It is `scrubTotal`, the same accumulator never wrapped: anything easing towards a value needs that value to be continuous, and wrapping is the opposite of continuous.
+
+## One loop, not fourteen
+
+Refcounting the pointer loop still left every consumer owning a frame callback of its own — the custom cursor, the spotlight, each magnetic button, the spectrum canvas, the audio analyser. Counted on the finished page: fourteen independent `requestAnimationFrame` callbacks per frame.
+
+They cost more than their arithmetic. Callback order is registration order, which is mount order, which is nothing in particular — so a consumer could read the pointer store before that frame's update had written it, and run one frame stale. Worse, a callback doing a layout read (`elementFromPoint`, a bounding box) could land between another one's style write and the browser's own layout, and force it twice.
+
+So there is one loop, and subscribers declare a priority:
+
+```ts
+export const PRIORITY = { store: 0, write: 10 } as const;
+```
+
+Stores update first, writers second, and both get the same `delta` for the same frame.
+
+## Refcounting the loop
+
+The catch with a module-level loop is knowing when to stop it. If it runs forever you burn battery on a page nobody is looking at; if each consumer starts its own, you are back to four loops.
+
+`acquirePointer()` returns a release function and keeps a count:
+
+- First acquire attaches the listeners and starts the frame loop.
+- Last release removes them and cancels it.
+
+Every consumer calls it in a `useEffect` and returns the release. Unmount the component, the count drops, and when it hits zero the whole thing goes quiet.
+
+## What the easing is actually for
+
+The raw pointer position is correct but ugly — it jitters, and anything bolted directly to it looks nervous. One line fixes it:
+
+```ts
+pointer.x += (pointer.rawX - pointer.x) * ease;
+```
+
+That is exponential smoothing, and it is the difference between a cursor that feels attached to the hand and one that feels attached to a mouse. The spotlight uses `0.1`, slow enough to leave a visible trail behind fast movement.
+
+The catch is that a shared smoothed position is not what everything wants. The cursor dot has to sit on the *raw* pointer: with the native cursor hidden, ten frames of catching up is 160ms of the whole page feeling broken. Magnetic buttons want weight, but they already damp their own output — feeding them the pre-smoothed position stacked two lags and turned weight into sludge. Both read `rawX/rawY` and do their own easing, or none. The ring around the dot is the one place the trail is the point.
+
+## Frame-rate independence
+
+The other thing that easing line hides is a bug. `* 0.1` per frame means one speed at 60Hz and roughly two and a half times that on a 144Hz display — the same code produces a different feel on different hardware, and the faster machine gets the twitchier version. Correcting it means asking what fraction of the remaining distance to close given how much time actually passed:
+
+```ts
+export function damp(ease: number, dt: number) {
+  return 1 - Math.pow(1 - ease, dt * 60);
+}
+```
+
+`ease` keeps its old meaning — the per-frame fraction at 60Hz — so the numbers already tuned by eye stay valid, and every other refresh rate now matches them. Everything that eases goes through this: pointer, scroll velocity, magnetic buttons, the cursor ring, the video's playback rate.
+
+## The part that is not a trick
+
+None of the above buys anything if the work inside the frame is too expensive. Three things were cut for that reason:
+
+1. **`getBoundingClientRect` per frame.** Magnetic buttons need their own centre, but reading it forces layout. Caching it on scroll is not the fix either: smooth scrolling emits a scroll event every frame, so a page of eight buttons still forced eight layouts per scrolled frame. The centre is cached in *document* space instead — resize and one settle timer are the only things that can move it — and the viewport position is a subtraction against the scroll offset.
+2. **`canvas.toDataURL()` per frame.** The reference implementation of the spotlight redraws a radial gradient into a canvas each frame and hands the PNG to `mask-image`. That encode is 5–15ms — a frame and a half, gone, for a gradient CSS can draw itself. The mask is a CSS `radial-gradient` positioned from two custom properties instead, and the loop writes nothing but `--mx` and `--my`.
+3. **Rebuilding a shader mid-scroll.** The postprocessing chain fires a glitch burst when you cross into a new section. Driving that from React state re-rendered the effect stack, and two of those effects memoize their instance on the identity of their props object — which a re-render always makes new. Rebuilding the effect rebuilds the pass, and rebuilding the pass recompiles the merged fullscreen shader: one 183ms frame, every section boundary. The burst is now a field written on the live effect. Nothing re-renders, so nothing recompiles.
+
+Sixty frames means 16.6 milliseconds to do everything: your animation, the browser's layout, paint, composite, and whatever the garbage collector feels like doing. It is not a target you hit. It is a budget you spend, and most of it is already spoken for.
+
+<NoteFooter slug="sixty-frames" />

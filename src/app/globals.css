@@ -1,0 +1,281 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Design tokens — brutalist monochrome.
+   Pure black ground, bone-white ink, zero border radius anywhere, hard 1px
+   rules instead of shadows. Only two hues exist; everything else is opacity.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-ground: #060607;
+  --color-ground-2: #0d0d0f;
+  --color-ink: #f2f0eb;
+  --color-ink-dim: #8d8d88;
+  --color-rule: #262628;
+
+  --font-display: var(--font-archivo), 'Arial Black', sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
+
+  --radius-none: 0px;
+
+  --ease-brut: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-radius: 0 !important; /* brutalism: nothing is round, no exceptions */
+}
+
+html {
+  background: var(--color-ground);
+  /* Lenis drives scrolling; native smooth would fight it. */
+  scroll-behavior: auto;
+}
+
+/* Anchored sections must clear the fixed nav. Lenis applies the same clearance
+   itself (NAV_CLEARANCE in SmoothScroll), but under reduced motion Lenis is not
+   mounted at all and the browser performs the jump — without this the section's
+   index row lands behind the bar. */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.02em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-ground);
+}
+
+/* Native cursor is replaced by CustomCursor on pointer-fine devices. */
+body[data-custom-cursor='on'],
+body[data-custom-cursor='on'] * {
+  cursor: none !important;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------------
+   Inverted slab — paper ground, ink type.
+
+   The palette has exactly two hues, so the only rhythm available across a long
+   page is which of the two is the background. Every section but `WORK` was the
+   dark ground, which is what made the page read as one continuous panel no
+   matter how the content changed.
+
+   Rather than restate every colour inside an inverted section, this swaps the
+   tokens themselves for the subtree. Tailwind v4 emits `@theme` values as custom
+   properties and compiles utilities to `var(--color-*)`, so `text-ink`,
+   `bg-ground/88`, `border-rule` and every alpha variant of them flip with no
+   per-element edits. `--color-ground-2` and `--color-ink-dim` are picked by eye
+   for the light field: the dim tone has to sit further from its ground here or
+   small mono type disappears into the paper.
+--------------------------------------------------------------------------- */
+.slab-invert {
+  --color-ground: #f2f0eb;
+  --color-ground-2: #e7e5df;
+  --color-ink: #060607;
+  --color-ink-dim: #55554f;
+  --color-rule: #c9c7c0;
+
+  color-scheme: light;
+}
+
+/* Separate rule, in `components`, so a `bg-*` or `text-*` utility on the same
+   element still wins — the token block above must stay unlayered because it is
+   what descendants inherit. */
+@layer components {
+  .slab-invert {
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Section seams — the transition between two slabs.
+
+   A scroll-driven CSS animation, not JavaScript: `animation-timeline: view()`
+   ties progress to the element's own travel through the viewport, so the rule
+   draws itself as the seam arrives and costs the compositor a single transform
+   on a 1px strip. Behind `@supports` because a browser without scroll-driven
+   animations would otherwise run the keyframes once on load, which is the one
+   behaviour worse than not animating at all — the seam would already be drawn
+   by the time it was scrolled to.
+--------------------------------------------------------------------------- */
+@keyframes seamDraw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .seam-draw {
+    transform-origin: left center;
+    animation: seamDraw linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seam-draw {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Typography helpers.
+
+   In `@layer components` deliberately, and this is not cosmetic. Tailwind's
+   utilities live in `@layer utilities`; an unlayered rule beats every layered
+   one no matter how low its specificity, so while these sat outside a layer
+   `.label` won against `text-[9px]` and `.font-display` won against
+   `leading-[0.82]`. Eighteen font sizes and twelve line heights across the app
+   were silently doing nothing. Declared here, later layers win as written.
+--------------------------------------------------------------------------- */
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.05em;
+    line-height: 0.86;
+    text-transform: uppercase;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Keyframes
+--------------------------------------------------------------------------- */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes heroZoom {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: heroZoom 1.8s var(--ease-brut) forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-brut) forwards;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 28s) linear infinite;
+}
+
+/* Film grain, animated by stepping a tiled noise texture. */
+@keyframes grainShift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  30% {
+    transform: translate(3%, -2%);
+  }
+  50% {
+    transform: translate(-1%, 4%);
+  }
+  70% {
+    transform: translate(4%, 1%);
+  }
+  90% {
+    transform: translate(-3%, 2%);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Accessibility — kill every non-essential motion.
+   Scroll-driven camera, grain, marquee and blink all stop; content stays put
+   and fully visible rather than stuck at opacity 0.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom,
+  .anim-fade-up,
+  .animate-marquee,
+  .animate-blink {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Hide scrollbar but keep scrollability. */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+html {
+  scrollbar-width: none;
+}
