@@ -43,11 +43,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Cherralea%20Morgen&quote=Don't%20let%20the%20past%20steal%20your%20present.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Unknown&quote=You%20are%20not%20what%20you%20think%20you%20are%2C%20You%20are%20not%20what%20others%20think%20you%20are%2C%20You%20are%20what%20you%20think%20others%20think%20you%20are.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
