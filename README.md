@@ -46,11 +46,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Tony%20Robbins&quote=It%20is%20not%20what%20we%20get.%20But%20who%20we%20become%2C%20what%20we%20contribute...%20that%20gives%20meaning%20to%20our%20lives.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Alfred%20Adler&quote=It%20is%20well%20known%20that%20those%20who%20do%20not%20trust%20themselves%20never%20trust%20others.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
