@@ -48,11 +48,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Martin%20Luther%20King%2C%20Jr.&quote=We%20must%20accept%20finite%20disappointment%2C%20but%20never%20lose%20infinite%20hope.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Elbert%20Hubbard&quote=The%20greatest%20mistake%20you%20can%20make%20in%20life%20is%20to%20be%20continually%20fearing%20you%20will%20make%20one.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
