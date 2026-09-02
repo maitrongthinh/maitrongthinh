@@ -55,11 +55,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Helen%20Keller&quote=Keep%20your%20face%20to%20the%20sunshine%20and%20you%20cannot%20see%20the%20shadows.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=George%20Bernard%20Shaw&quote=We%20have%20no%20more%20right%20to%20consume%20happiness%20without%20producing%20it%20than%20to%20consume%20wealth%20without%20producing%20it.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
