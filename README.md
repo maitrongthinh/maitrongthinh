@@ -57,11 +57,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Osho&quote=Truth%20is%20not%20something%20outside%20to%20be%20discovered%2C%20it%20is%20something%20inside%20to%20be%20realized.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Mark%20Manson&quote=Life%20is%20essentially%20an%20endless%20series%20of%20problems.%20The%20solution%20to%20one%20problem%20is%20merely%20the%20creation%20of%20another.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
