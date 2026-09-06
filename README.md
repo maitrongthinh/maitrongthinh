@@ -59,11 +59,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Ralph%20Waldo%20Emerson&quote=When%20it%20is%20dark%20enough%2C%20you%20can%20see%20the%20stars.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Robert%20Greene&quote=The%20greatest%20test%20of%20courage%20on%20earth%20is%20to%20bear%20defeat%20without%20losing%20heart.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
