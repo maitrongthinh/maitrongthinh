@@ -60,11 +60,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Robert%20Greene&quote=The%20greatest%20test%20of%20courage%20on%20earth%20is%20to%20bear%20defeat%20without%20losing%20heart.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Stephen%20Hawking&quote=The%20greatest%20enemy%20of%20knowledge%20is%20not%20ignorance%2C%20it's%20the%20illusion%20of%20knowledge.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
