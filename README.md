@@ -61,11 +61,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Stephen%20Hawking&quote=The%20greatest%20enemy%20of%20knowledge%20is%20not%20ignorance%2C%20it's%20the%20illusion%20of%20knowledge.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Dan%20Millman&quote=The%20secret%20of%20happiness%2C%20you%20see%2C%20is%20not%20found%20in%20seeking%20more%2C%20but%20in%20developing%20the%20capacity%20to%20enjoy%20less.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
