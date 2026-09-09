@@ -62,11 +62,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Dan%20Millman&quote=The%20secret%20of%20happiness%2C%20you%20see%2C%20is%20not%20found%20in%20seeking%20more%2C%20but%20in%20developing%20the%20capacity%20to%20enjoy%20less.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Richard%20Bach&quote=Remember%20where%20you%20came%20from%2C%20where%20you're%20going%2C%20and%20why%20you%20created%20this%20mess%20you%20got%20yourself%20into%20in%20the%20first%20place.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
