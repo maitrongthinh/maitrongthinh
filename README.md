@@ -63,11 +63,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Richard%20Bach&quote=Remember%20where%20you%20came%20from%2C%20where%20you're%20going%2C%20and%20why%20you%20created%20this%20mess%20you%20got%20yourself%20into%20in%20the%20first%20place.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Ralph%20Marston&quote=Greatness%20comes%20from%20living%20with%20purpose%20and%20passion.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
