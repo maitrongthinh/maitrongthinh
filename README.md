@@ -65,11 +65,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Aristotle&quote=Misfortune%20shows%20those%20who%20are%20not%20really%20friends.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Rumi&quote=Your%20task%20is%20not%20to%20seek%20for%20love%2C%20but%20merely%20to%20seek%20and%20find%20all%20the%20barriers%20within%20yourself%20that%20you%20have%20built%20against%20it.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
