@@ -69,11 +69,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Oprah%20Winfrey&quote=Be%20thankful%20for%20what%20you%20have%3B%20you'll%20end%20up%20having%20more.%20If%20you%20concentrate%20on%20what%20you%20don't%20have%2C%20you%20will%20never%2C%20ever%20have%20enough.%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Eleanor%20Roosevelt&quote=The%20purpose%20of%20life%20is%20to%20live%20it%2C%20to%20taste%20experience%20to%20the%20utmost%2C%20to%20reach%20out%20eagerly%20and%20without%20fear%20for%20newer%20and%20richer%20experience.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
