@@ -72,11 +72,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Lao%20Tzu&quote=Care%20about%20what%20other%20people%20think%20and%20you%20will%20always%20be%20their%20prisoner.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Wayne%20Dyer&quote=Doing%20what%20you%20love%20is%20the%20cornerstone%20of%20having%20abundance%20in%20your%20life.%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
