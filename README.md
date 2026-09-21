@@ -74,11 +74,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Kahlil%20Gibran&quote=We%20are%20all%20like%20the%20bright%20moon%2C%20we%20still%20have%20our%20darker%20side.%20%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Dr.%20Seuss&quote=Why%20fit%20in%20when%20you%20were%20born%20to%20stand%20out%3F&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
