@@ -78,11 +78,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=John%20Wooden&quote=Whatever%20you%20do%20in%20life%2C%20surround%20yourself%20with%20smart%20people%20who'll%20argue%20with%20you.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=George%20Eliot&quote=It%20is%20never%20too%20late%20to%20be%20what%20you%20might%20have%20been.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
