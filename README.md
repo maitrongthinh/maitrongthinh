@@ -83,11 +83,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Deepak%20Chopra&quote=There%20is%20no%20right%20or%20wrong%2C%20only%20a%20series%20of%20possibilities%20that%20shift%20with%20each%20thought%2C%20feeling%2C%20and%20action%20that%20you%20experience.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Elon%20Musk&quote=You%20get%20paid%20in%20direct%20proportion%20to%20the%20difficulty%20of%20problems%20you%20solve.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
