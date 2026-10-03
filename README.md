@@ -86,11 +86,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Naval%20Ravikant&quote=If%20it%20entertains%20you%20now%20but%20will%20bore%20you%20someday%2C%20it's%20a%20distraction.%20Keep%20looking.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Steve%20Maraboli&quote=You%20must%20learn%20to%20let%20go.%20Release%20the%20stress.%20You%20were%20never%20in%20control%20anyway.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
