@@ -93,11 +93,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Chinese%20Proverb&quote=Better%20the%20cottage%20where%20one%20is%20merry%20than%20the%20palace%20where%20one%20weeps.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Lily%20Tomlin&quote=Reality%20is%20the%20leading%20cause%20of%20stress%20among%20those%20in%20touch%20with%20it.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
