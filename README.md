@@ -94,11 +94,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Lily%20Tomlin&quote=Reality%20is%20the%20leading%20cause%20of%20stress%20among%20those%20in%20touch%20with%20it.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Jack%20London&quote=You%20can't%20wait%20for%20inspiration.%20You%20have%20to%20go%20after%20it%20with%20a%20club.%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
