@@ -103,11 +103,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Soyen%20Shaku&quote=Have%20the%20fearless%20attitude%20of%20a%20hero%20and%20the%20loving%20heart%20of%20a%20child.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=G.I.%20Gurdjieff&quote=Man%20must%20use%20what%20he%20has%2C%20not%20hope%20for%20what%20is%20not.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
