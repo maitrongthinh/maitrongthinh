@@ -105,11 +105,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=George%20Bernard%20Shaw&quote=You%20use%20a%20glass%20mirror%20to%20see%20your%20face%3B%20you%20use%20works%20of%20art%20to%20see%20your%20soul.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Samuel%20Butler&quote=Logic%20is%20like%20the%20sword%20-%20those%20who%20appeal%20to%20it%20shall%20perish%20by%20it.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
