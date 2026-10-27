@@ -110,11 +110,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Confucius&quote=Wheresoever%20you%20go%2C%20go%20with%20all%20your%20heart.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Franz%20Kafka&quote=One%20of%20the%20first%20signs%20of%20the%20beginning%20of%20understanding%20is%20the%20wish%20to%20die.%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
