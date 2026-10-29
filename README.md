@@ -112,11 +112,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Dr.%20Seuss&quote=Don't%20cry%20because%20it's%20over.%20Smile%20because%20it%20happened.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=James%20Allen&quote=Circumstances%20do%20not%20make%20the%20man%2C%20they%20reveal%20him.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
