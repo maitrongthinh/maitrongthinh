@@ -113,11 +113,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=James%20Allen&quote=Circumstances%20do%20not%20make%20the%20man%2C%20they%20reveal%20him.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Carl%20Jung&quote=Until%20you%20make%20the%20unconscious%20conscious%2C%20it%20will%20direct%20your%20life%20and%20you%20will%20call%20it%20fate.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
