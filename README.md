@@ -114,11 +114,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Carl%20Jung&quote=Until%20you%20make%20the%20unconscious%20conscious%2C%20it%20will%20direct%20your%20life%20and%20you%20will%20call%20it%20fate.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Nikola%20Tesla&quote=We%20crave%20for%20new%20sensations%20but%20soon%20become%20indifferent%20to%20them.%20The%20wonders%20of%20yesterday%20are%20today%20common%20occurrences%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
