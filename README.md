@@ -117,11 +117,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Seneca&quote=It%20is%20not%20because%20things%20are%20difficult%20that%20we%20do%20not%20dare%3B%20it%20is%20because%20we%20do%20not%20dare%20that%20things%20are%20difficult.%20%20&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Samuel%20Butler&quote=Life%20is%20like%20playing%20the%20violin%20in%20public%20and%20learning%20the%20instrument%20as%20one%20goes%20on.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
