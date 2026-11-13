@@ -127,11 +127,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Lao%20Tzu&quote=When%20I%20let%20go%20of%20what%20I%20am%2C%20I%20become%20what%20I%20might%20be.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Sigmund%20Freud&quote=The%20more%20perfect%20a%20person%20is%20on%20the%20outside%2C%20the%20more%20demons%20they%20have%20on%20the%20inside.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
