@@ -128,11 +128,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Sigmund%20Freud&quote=The%20more%20perfect%20a%20person%20is%20on%20the%20outside%2C%20the%20more%20demons%20they%20have%20on%20the%20inside.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Dan%20Millman&quote=The%20seasons%20do%20not%20push%20one%20another%3B%20neither%20do%20clouds%20race%20the%20wind%20across%20the%20sky.%20All%20things%20happen%20in%20their%20own%20good%20time.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
