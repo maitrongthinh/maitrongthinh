@@ -133,11 +133,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Celestine%20Chua&quote=Rather%20than%20waste%20time%20and%20energy%20worrying%2C%20use%20that%20time%20and%20energy%20to%20constructively%20deal%20with%20whatever%20is%20causing%20the%20worry.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Eleanor%20Roosevelt&quote=Great%20minds%20discuss%20ideas.%20Average%20minds%20discuss%20events.%20Small%20minds%20discuss%20people.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
