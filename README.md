@@ -135,11 +135,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Ralph%20Waldo%20Emerson&quote=What%20lies%20behind%20us%20and%20what%20lies%20before%20us%20are%20tiny%20matters%20compared%20to%20what%20lies%20within%20us.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Zen%20Proverb&quote=No%20snowflake%20ever%20falls%20in%20the%20wrong%20place.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
