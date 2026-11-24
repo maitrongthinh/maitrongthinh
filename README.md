@@ -138,11 +138,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Sun%20Tzu&quote=It%20is%20easy%20to%20love%20your%20friend%2C%20but%20sometimes%20the%20hardest%20lesson%20to%20learn%20is%20to%20love%20your%20enemy.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Alfred%20Adler&quote=It%20is%20well%20known%20that%20those%20who%20do%20not%20trust%20themselves%20never%20trust%20others.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
