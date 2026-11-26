@@ -140,11 +140,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Aristotle&quote=What%20is%20a%20friend%3F%20A%20single%20soul%20dwelling%20in%20two%20bodies.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Naval%20Ravikant&quote=No%20one%20can%20compete%20with%20you%20on%20being%20you.%20Most%20of%20life%20is%20a%20search%20for%20who%20and%20what%20needs%20you%20the%20most.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
