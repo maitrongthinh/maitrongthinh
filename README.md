@@ -142,11 +142,13 @@
 
 
 
+
 <!--STARTS_HERE_QUOTE_CARD-->
 <p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Eleanor%20Roosevelt&quote=Be%20confident%2C%20not%20certain.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
+    <img src="https://readme-daily-quotes.vercel.app/api?author=Lily%20Tomlin&quote=The%20trouble%20with%20the%20rat%20race%20is%20that%20even%20if%20you%20win%2C%20you're%20still%20a%20rat.&theme=dark&bg_color=060607&author_color=8d8d88&accent_color=f2f0eb" alt="Quote of the day">
 </p>
 <!--ENDS_HERE_QUOTE_CARD-->
+
 
 
 
